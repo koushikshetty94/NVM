@@ -24,6 +24,7 @@ import {
       store.dispatch(
         userAuthProgress({ isAuthInProgress: true, isAuthDone: false })
       );
+      console.log("actions")
       return Axios.post("/api/v1/users/register", { ...payload }).then(res => {
         if (res.data.success) {
           console.log(res, "signup successful");

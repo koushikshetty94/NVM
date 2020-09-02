@@ -22,8 +22,8 @@ function SignUp(props) {
       )
       .then(data => {
         if (data.success) return props.history.push("/");
-        if (data.err.errmsg.includes("duplicate"))
-          console.log("username already exists");
+        // if (data.err.errmsg.includes("duplicate"))
+        //   console.log("username already exists");
       })
       .catch(err => {
         console.log(err, "signup failed");

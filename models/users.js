@@ -3,12 +3,13 @@ var Schema = mongoose.Schema;
 var bcrypt = require("bcryptjs");
 const mongooseLeanGetters = require("mongoose-lean-getters");
 const mongooseLeanVirtuals = require("mongoose-lean-virtuals");
+var voucher_codes = require("voucher-code-generator");
 
 var userSchema = new Schema(
   {
-    name:{
-      type:String,
-      required: true
+    name: {
+      type: String,
+      required: true,
     },
     username: {
       type: String,
@@ -17,22 +18,37 @@ var userSchema = new Schema(
     },
     contactnumber: {
       type: Number,
-      // required: true,
+      required: true,
     },
     password: {
       type: String,
       required: true,
       min: 6,
     },
-    balance:{
-      type:  Number,
-      default: 0
-    }
+    referalcode: {
+      type: String,
+      default: 0,
+    },
+    balance: {
+      type: Number,
+      default: 0,
+    },
   },
   {
     timestamps: true,
   }
 );
+
+userSchema.pre("save", function (next) {
+  voucher = voucher_codes.generate({
+    prefix: "NVM-",
+    length: 5,
+    count: 1,
+  });
+  console.log(voucher);
+  this.referalcode = voucher;
+  next();
+});
 
 userSchema.pre("save", function (next) {
   if (this.password && this.isModified("password")) {

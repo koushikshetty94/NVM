@@ -4,9 +4,10 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const expressStaticGzip = require("express-static-gzip");
+var mongoose = require("mongoose");
 
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+var usersRouter = require("./routes/users/index");
 
 require("dotenv").config();
 
@@ -51,7 +52,15 @@ if (process.env.NODE_ENV === "development") {
   app.use(require("webpack-hot-middleware")(compiler));
 }
 
-app.use("/users", usersRouter);
+mongoose.connect(
+  "mongodb://localhost/NVM1",
+  { useNewUrlParser: true, useUnifiedTopology: true },
+  err => {
+    console.log("connected", err ? false : true);
+  }
+);
+
+app.use("/api/v1/users", usersRouter);
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler

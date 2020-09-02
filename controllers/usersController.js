@@ -29,6 +29,7 @@ module.exports = {
   },
   login: async (req, res) => {
     try {
+      console.log("login hit")
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
         return res.status(422).json({ errors: errors.array() });
