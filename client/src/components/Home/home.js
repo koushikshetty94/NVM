@@ -6,9 +6,6 @@ export default class home extends Component {
   render() {
     return (
       <>
-        <div id="preloder">
-          <div className="loader"></div>
-        </div>
         <header className="header-section">
           <div className="container">
             <div className="logo">
@@ -47,7 +44,11 @@ export default class home extends Component {
           </div>
         </header>
 
-        <section className="hero-section set-bg" data-setbg="img/hero.jpg">
+        <section
+          className="hero-section set-bg"
+          data-setbg="img/hero.jpg"
+          style={{ backgroundImage: `url(img/hero.jpg)` }}
+        >
           <div className="container">
             <div className="row">
               <div className="col-lg-7">
@@ -160,6 +161,7 @@ export default class home extends Component {
         <section
           className="pricing-section set-bg spad"
           data-setbg="img/pricing-bg.jpg"
+          style={{ backgroundImage: `url(img/pricing-bg.jpg)` }}
         >
           <div className="container">
             <div className="row">
@@ -523,6 +525,7 @@ export default class home extends Component {
                 <div
                   className="latest-item set-bg large-item"
                   data-setbg="img/blog/latest-b/latest-1.jpg"
+                  style={{ background: `url(img/blog/latest-b/latest-1.jpg)` }}
                 />
                 <div className="li-tag">Song</div>
                 <div className="li-text">
@@ -542,6 +545,7 @@ export default class home extends Component {
               <div
                 className="latest-item set-bg"
                 data-setbg="img/blog/latest-b/latest-2.jpg"
+                style={{ background: `url(img/blog/latest-b/latest-2.jpg)` }}
               >
                 <div className="li-tag">Song</div>
                 <div className="li-text">
@@ -559,6 +563,7 @@ export default class home extends Component {
               <div
                 className="latest-item set-bg"
                 data-setbg="img/blog/latest-b/latest-3.jpg"
+                style={{ background: `url(img/blog/latest-b/latest-3.jpg)` }}
               >
                 <div className="li-tag">Song</div>
                 <div className="li-text">
@@ -582,6 +587,7 @@ export default class home extends Component {
             <div
               className="newslatter-inner set-bg"
               data-setbg="img/newslatter-bg.jpg"
+              style={{ background: `url(img/newslatter-bg.jpg)` }}
             >
               <div className="ni-text">
                 <h3>Subscribe To Our Whatsapp</h3>
