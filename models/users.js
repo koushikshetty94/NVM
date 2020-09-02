@@ -26,7 +26,7 @@ var userSchema = new Schema(
       min: 6,
     },
     referalcode: {
-      type: String,
+      type: Array,
       default: 0,
     },
     balance: {
@@ -38,17 +38,6 @@ var userSchema = new Schema(
     timestamps: true,
   }
 );
-
-userSchema.pre("save", function (next) {
-  voucher = voucher_codes.generate({
-    prefix: "NVM-",
-    length: 5,
-    count: 1,
-  });
-  console.log(voucher);
-  this.referalcode = voucher;
-  next();
-});
 
 userSchema.pre("save", function (next) {
   if (this.password && this.isModified("password")) {

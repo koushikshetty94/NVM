@@ -1,10 +1,20 @@
 var User = require("../models/users");
 var auth = require("../modules/auth");
 const { check, validationResult } = require("express-validator");
+var voucher_codes = require("voucher-code-generator");
 
+function generateVoucher(){
+  return voucher = voucher_codes.generate({
+    prefix: "NVM",
+    length: 5,
+    count: 1,
+  });
+}
 module.exports = {
   signUp: async (req, res) => {
     try {
+      req.body.referalcode = generateVoucher();
+      console.log(req.body.referalcode)
       console.log("hit");
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
