@@ -6,12 +6,15 @@ import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { identifyLoggedUser } from "./store/actions";
 import Home from "./components/Home/home.js";
-
+import About from "./components/aboutUs/about";
+import Contact from "./components/contactUs/contact";
 
 function PublicRoutes(props) {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/aboutus" component={About}/>
+      <Route path="/contact" component={Contact}/>
       <Route path="/signup" exact component={SignUp} />
       <Route path="/login" component={Login} />
       <Route path="*">
