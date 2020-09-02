@@ -5,9 +5,7 @@ export default class contact extends Component {
         return (
             <div>
                 <div>
-        <div id="preloder">
-          <div className="loader" />
-        </div>
+        
         {/* Header Section Begin */}
         <header className="header-section">
           <div className="container">
