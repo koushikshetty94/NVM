@@ -2,39 +2,38 @@ import React, { useRef, Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { userSignUp, userAuthProgress } from "../../store/actions";
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import Avatar from "@material-ui/core/Avatar";
+import Button from "@material-ui/core/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import TextField from "@material-ui/core/TextField";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import Checkbox from "@material-ui/core/Checkbox";
+import Link from "@material-ui/core/Link";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "@material-ui/core/Container";
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center"
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.secondary.main
   },
   form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    width: "100%", // Fix IE 11 issue.
+    marginTop: theme.spacing(3)
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
+    margin: theme.spacing(3, 0, 2)
+  }
 }));
 
 function SignUp(props) {
@@ -43,10 +42,11 @@ function SignUp(props) {
   let username = useRef(null);
   let contactnumber = useRef(null);
   let password = useRef(null);
+  let referedBy = useRef(null);
 
   const handleSignup = e => {
     e.preventDefault();
-    console.log(name.current.value)
+    console.log(name.current.value);
     props
       .dispatch(
         userSignUp({
@@ -69,7 +69,6 @@ function SignUp(props) {
       });
   };
 
-
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -80,7 +79,11 @@ function SignUp(props) {
         <Typography component="h1" variant="h5">
           Sign up
         </Typography>
-        <form className={classes.form} noValidate onSubmit={e => handleSignup(e)}>
+        <form
+          className={classes.form}
+          noValidate
+          onSubmit={e => handleSignup(e)}
+        >
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
@@ -95,7 +98,7 @@ function SignUp(props) {
                 ref={name}
               />
             </Grid>
-            <Grid item xs={12} >
+            <Grid item xs={12}>
               <TextField
                 variant="outlined"
                 required
@@ -132,7 +135,19 @@ function SignUp(props) {
                 ref={password}
               />
             </Grid>
+            <Grid item xs={12}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                name="referedBy"
+                label="Referal Code"
+                type="text"
+                id="referedBy"
+                ref={referedBy}
+              />
             </Grid>
+          </Grid>
           <Button
             type="submit"
             fullWidth
@@ -151,13 +166,12 @@ function SignUp(props) {
           </Grid>
         </form>
       </div>
-      <Box mt={5}>
-      </Box>
+      <Box mt={5}></Box>
     </Container>
   );
 }
 
 function mapToProps({ user }) {
-    return { user };
-  }
-  export default connect(mapToProps)(withRouter(SignUp));
+  return { user };
+}
+export default connect(mapToProps)(withRouter(SignUp));
