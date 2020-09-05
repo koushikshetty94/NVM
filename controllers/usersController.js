@@ -13,7 +13,7 @@ function generateVoucher() {
 module.exports = {
   signUp: async (req, res) => {
     try {
-      req.body.referalcode = generateVoucher();
+      req.body.referalcode = generateVoucher().join();
       console.log(req.body.referalcode);
       console.log("hit");
       const errors = validationResult(req);

@@ -9,6 +9,7 @@ import Home from "./components/Home/home.js";
 import About from "./components/aboutUs/about";
 import Contact from "./components/contactUs/contact";
 import Cart from "./cart/Cart";
+// import Profile from "../src/components/Profile";
 
 function PublicRoutes(props) {
   return (
@@ -28,7 +29,6 @@ function PublicRoutes(props) {
             fontSize: "2rem"
           }}
         >
-          {" "}
           Path not found
         </div>
       </Route>
