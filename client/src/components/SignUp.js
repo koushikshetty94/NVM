@@ -8,6 +8,7 @@ function SignUp(props) {
   let username = useRef(null);
   let contactnumber = useRef(null);
   let password = useRef(null);
+  let referedBy = useRef(null);
 
   const handleSignup = e => {
     e.preventDefault();
@@ -17,13 +18,14 @@ function SignUp(props) {
           name: name.current.value,
           username: username.current.value,
           contactnumber: contactnumber.current.value,
-          password: password.current.value
+          password: password.current.value,
+          referedBy: referedBy.current.value
         })
       )
       .then(data => {
         if (data.success) return props.history.push("/");
-        if (data.err.errmsg.includes("duplicate"))
-          console.log("username already exists");
+        // if (data.err.errmsg.includes("duplicate"))
+        //   console.log("username already exists");
       })
       .catch(err => {
         console.log(err, "signup failed");
@@ -76,6 +78,15 @@ function SignUp(props) {
                     id="password"
                     placeholder="Password"
                     ref={password}
+                  />
+                </div>
+                <div className="input form-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="referedBy"
+                    placeholder="Referel Code"
+                    ref={referedBy}
                   />
                 </div>
                 <div className="d-flex flex-row align-items-center justify-content-between">

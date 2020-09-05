@@ -1,17 +1,21 @@
 import React, { Component } from "react";
-import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import SignUp from "./components/SignUp";
 import Profile from "./components/Profile";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { identifyLoggedUser } from "./store/actions";
 import Home from "./components/Home/home.js";
-
+import About from "./components/aboutUs/about";
+import Contact from "./components/contactUs/contact";
+import Cart from "./cart/Cart";
 
 function PublicRoutes(props) {
   return (
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/aboutus" component={About} />
+      <Route path="/contact" component={Contact} />
       <Route path="/signup" exact component={SignUp} />
       <Route path="/login" component={Login} />
       <Route path="*">
@@ -21,7 +25,7 @@ function PublicRoutes(props) {
             justifyContent: "center",
             alignItems: "center",
             margin: "120px auto",
-            fontSize: "2rem",
+            fontSize: "2rem"
           }}
         >
           {" "}
@@ -35,7 +39,11 @@ function PublicRoutes(props) {
 function PrivateRoutes(props) {
   return (
     <Switch>
+      <Route path="/" exact component={Home} />
       <Route path="/me" component={Profile} />
+      <Route path="/aboutus" component={About} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/cart" component={Cart} />
       <Route path="*">
         <div
           style={{
@@ -43,7 +51,7 @@ function PrivateRoutes(props) {
             justifyContent: "center",
             alignItems: "center",
             margin: "120px auto",
-            fontSize: "2rem",
+            fontSize: "2rem"
           }}
         >
           {" "}
@@ -72,7 +80,7 @@ class App extends Component {
               justifyContent: "center",
               alignItems: "center",
               margin: "120px auto",
-              fontSize: "2rem",
+              fontSize: "2rem"
             }}
           >
             LOADING.....
@@ -86,8 +94,8 @@ class App extends Component {
     );
   }
 }
-function mapToProps({ user }) {
-  console.log(user, "from mapstatetoprops");
+function mapToProps({ user, cart }) {
+  console.log(user, cart, "from mapstatetoprops");
   return { user };
 }
 

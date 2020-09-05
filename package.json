@@ -8,6 +8,8 @@
     "sass": "node-sass -w ./client/assets/stylesheets/style.scss ./client/assets/stylesheets/style.css"
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "axios": "^0.20.0",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.2",
@@ -25,12 +27,15 @@
     "mongoose-lean-virtuals": "^0.6.9",
     "morgan": "~1.9.1",
     "node-sass": "^4.14.0",
+    "razorpay": "^2.0.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
     "react-router-dom": "^5.2.0",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "shortid": "^2.2.15",
+    "voucher-code-generator": "^1.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
