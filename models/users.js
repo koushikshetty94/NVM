@@ -40,9 +40,17 @@ var userSchema = new Schema(
     ],
     referedBy: {
       type: String
-    }
+    },
+    purchases: [
+      {
+        id: Number,
+        name: String,
+        description: String,
+        price: Number,
+        count: Number
+      }
+    ]
   },
-
   {
     timestamps: true
   }

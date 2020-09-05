@@ -20,18 +20,28 @@ module.exports = {
       if (!errors.isEmpty()) {
         return res.status(422).json({ errors: errors.array() });
       }
-      var referedBy = req.body.referalcode
+
+      // if (req.body.referalcode) {
+      //   var referedBy = await User.findOne({ referalcode: req.body.referedBy });
+      //   if (!referedBy) {
+      //     return res.json({ success: false, msg: "invalid referal code" });
+      //   }
+      // }
+
+      var referedBy = req.body.referedBy
         ? await User.findOne({ referalcode: req.body.referedBy })
-        : "";
+        : "nocode";
+      console.log(referedBy, "referedby");
       if (!referedBy) {
         return res.json({ success: false, msg: "invalid referal code" });
       }
 
-      req.body.referedBy = referedBy.id;
+      req.body.referedBy = referedBy == "nocode" ? "" : referedBy.id;
       var user = await User.create(req.body);
       var updateReferer = await User.findByIdAndUpdate(referedBy.id, {
         $push: { referredUsers: user.id }
       });
+      console.log(user, "account created");
       var token = await auth.generateJWT(user);
       let { name, username, password, contactNumber } = user;
       res.json({

@@ -1,15 +1,58 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 
 import "./home.scss";
+import { addToCart } from "../../store/actions";
 
-export default class home extends Component {
+class Home extends Component {
+  addToCart = i => {
+    console.log("add to cart");
+    let items = [
+      {
+        id: 0,
+        name: "Time Pass",
+        description: `1x Ticket
+          1x Lucky Contest Entry
+          English Subtitles
+          Tulu / Kannada Language
+          For Indian Users Only`,
+        price: 1
+      },
+      {
+        id: 1,
+        name: "Group Pass",
+        description: `Pay For 9 and Get 1 For Free
+          10x Ticket
+          10x Lucky Contest Entry
+          English Subtitles
+          Tulu / Kannada Language
+          For Indian Users Only`,
+        price: 2241
+      },
+      {
+        id: 2,
+        name: "NRI Pass",
+        description: `1x Day Ticket
+            1x Lucky Contest Entry
+            English Subtitles
+            Tulu / Kannada Language
+            Broadcast Globally`,
+        price: 349
+      }
+    ];
+
+    return this.props.cart.some(item => item.id == i)
+      ? ""
+      : this.props.dispatch(addToCart(items[i]));
+  };
   render() {
     return (
       <>
         <header className="header-section">
           <div className="container">
             <div className="logo">
-              <a href="./index.html">
+              <a href="/">
                 <img src="img/logo.png" alt="" />
               </a>
             </div>
@@ -17,10 +60,10 @@ export default class home extends Component {
               <nav className="mainmenu mobile-menu">
                 <ul>
                   <li className="active">
-                    <a href="./index.html">Home</a>
+                    <Link to="/">Home</Link>
                   </li>
                   <li>
-                    <a href="./about-us.html">About</a>
+                    <Link to="/aboutUs">About</Link>
                   </li>
                   <li>
                     <a href="#contest">Lucky Contest</a>
@@ -29,7 +72,10 @@ export default class home extends Component {
                     <a href="#">Updates</a>
                   </li>
                   <li>
-                    <a href="./contact.html">Contact</a>
+                    <Link to="/contact">Contact</Link>
+                  </li>
+                  <li>
+                    <Link to="/cart">Cart</Link>
                   </li>
                 </ul>
               </nav>
@@ -188,6 +234,7 @@ export default class home extends Component {
                     <li>Tulu / Kannada Language</li>
                     <li>For Indian Users Only</li>
                   </ul>
+                  <button onClick={() => this.addToCart(0)}>Add to Cart</button>
                   <a href="https://imjo.in/rPg657" className="price-btn">
                     Get Ticket <span className="arrow_right"></span>
                   </a>
@@ -212,6 +259,8 @@ export default class home extends Component {
                     <li>Tulu / Kannada Language</li>
                     <li>For Indian Users Only</li>
                   </ul>
+                  <button onClick={() => this.addToCart(1)}>Add to Cart</button>
+
                   <a href="https://imjo.in/FeTWcK" className="price-btn">
                     Get Ticket <span className="arrow_right"></span>
                   </a>
@@ -232,6 +281,8 @@ export default class home extends Component {
                     <li>Tulu / Kannada Language</li>
                     <li>Broadcast Globally</li>
                   </ul>
+                  <button onClick={() => this.addToCart(2)}>Add to Cart</button>
+
                   <a href="https://imjo.in/UWXVnc" className="price-btn">
                     Get Ticket <span className="arrow_right"></span>
                   </a>
@@ -713,7 +764,7 @@ export default class home extends Component {
                       <a href="#">Home</a>
                     </li>
                     <li>
-                      <a href="about.html">About</a>
+                      <a href="/aboutus">About</a>
                     </li>
                     <li>
                       <a href="#contest">Lucky Contest</a>
@@ -722,7 +773,7 @@ export default class home extends Component {
                       <a href="#">Updates</a>
                     </li>
                     <li>
-                      <a href="contact.html">Contact</a>
+                      <a href="/contact">Contact</a>
                     </li>
                   </ul>
                   <div className="copyright-text">
@@ -769,3 +820,8 @@ export default class home extends Component {
     );
   }
 }
+
+function mapToProps({ user, cart }) {
+  return { user, cart };
+}
+export default connect(mapToProps)(Home);
