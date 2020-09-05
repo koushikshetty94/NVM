@@ -2529,4 +2529,17 @@ ol {
     line-height: 35px;
     margin-left: 5px;
   }
+  .cartDiv {
+    width: 100%;
+    overflow: scroll;
+    height: 60vh;
+  }
+}
+.closeIt {
+  color: black;
+}
+.closeIt:hover {
+  color: tomato;
+  transform: scale(1.1);
+  transition: all linear 0.2s;
 }
