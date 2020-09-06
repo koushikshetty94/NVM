@@ -25,7 +25,7 @@ var userSchema = new Schema(
       required: true,
       min: 6
     },
-    referalcode: {
+    referralcode: {
       type: String
     },
     balance: {

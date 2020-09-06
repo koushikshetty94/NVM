@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Axios from "axios";
 
 import "./Profile.scss";
 
@@ -7,12 +8,24 @@ class Profile extends Component {
   constructor() {
     super();
     this.state = {
-      currentActive: "purchases"
+      currentActive: "purchases",
+      request: true
     };
   }
 
   handleClick = i => {
     this.setState({ currentActive: i });
+  };
+
+  handleRequest = () => {
+    Axios.get("/api/v1/users/redeem", {
+      headers: { authorization: JSON.parse(localStorage.gcoin).token }
+    })
+      .then(res => {
+        console.log(res.data, "res from redeem");
+        if (res.data.success) return this.setState({ request: false });
+      })
+      .catch(err => console.log(err, "err from redeem"));
   };
 
   box = () => {
@@ -54,7 +67,7 @@ class Profile extends Component {
         <div className="newBox">
           Your Referral Code is
           {this.props.user.currentUser &&
-            this.props.user.currentUser.referralcode}
+            " " + this.props.user.currentUser.referralcode}
         </div>
       );
     }
@@ -62,9 +75,19 @@ class Profile extends Component {
       return (
         <div className="newBox">
           Your Balance is
-          {" " +
+          {" ₹" +
             (this.props.user.currentUser &&
               this.props.user.currentUser.balance)}
+          <div>
+            {this.state.request ? (
+              <button className="btn btn-primary" onClick={this.handleRequest}>
+                {" "}
+                Redeem{" "}
+              </button>
+            ) : (
+              "Request Sent"
+            )}
+          </div>
         </div>
       );
     }

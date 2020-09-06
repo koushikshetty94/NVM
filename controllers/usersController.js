@@ -13,8 +13,8 @@ function generateVoucher() {
 module.exports = {
   signUp: async (req, res) => {
     try {
-      req.body.referalcode = generateVoucher().join();
-      console.log(req.body.referalcode);
+      req.body.referralcode = generateVoucher().join();
+      console.log(req.body.referralcode);
       console.log("hit");
       const errors = validationResult(req);
       if (!errors.isEmpty()) {
@@ -29,7 +29,7 @@ module.exports = {
       // }
 
       var referedBy = req.body.referedBy
-        ? await User.findOne({ referalcode: req.body.referedBy })
+        ? await User.findOne({ referralcode: req.body.referedBy })
         : "nocode";
       console.log(referedBy, "referedby");
       if (!referedBy) {

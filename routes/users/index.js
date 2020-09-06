@@ -7,6 +7,7 @@ const path = require("path");
 const shortid = require("shortid");
 const Razorpay = require("razorpay");
 var User = require("../../models/users");
+var Admin = require("../../models/admin");
 
 const razorpay = new Razorpay({
   // key_id: "rzp_test_uGoq5ABJztRAhk",
@@ -86,10 +87,37 @@ router.post("/paymentdone", auth.verifyToken, async (req, res) => {
     });
     console.log(user, req.body, "user");
 
+    if (user.referedBy) {
+      var referedByTheUser = await User.findByIdAndUpdate(user.referedBy, {
+        $inc: { balance: req.body.amount * 0.12 }
+      });
+      console.log(referedByTheUser, "referedByTheUser updated");
+    }
+
     res.json({
       success: true,
       msg: "Paymnet successfull",
       itemsBought: req.body.items
+    });
+  } catch (err) {
+    console.log(err, "error");
+    res.json({ success: false, err });
+  }
+});
+
+router.get("/redeem", auth.verifyToken, async (req, res) => {
+  try {
+    console.log(req.user, "from redeem");
+    var admin = await Admin.findOneAndUpdate(
+      { username: "admin" },
+      {
+        $addToSet: { requests: req.user.userId }
+      }
+    );
+    console.log(admin, "request updated");
+    res.json({
+      success: true,
+      msg: "Request sent"
     });
   } catch (err) {
     console.log(err, "error");

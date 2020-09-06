@@ -8,6 +8,9 @@ var mongoose = require("mongoose");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users/index");
+var adminsRouter = require("./routes/admins/index");
+
+var Admin = require("./models/admin");
 
 require("dotenv").config();
 
@@ -57,10 +60,24 @@ mongoose.connect(
   { useNewUrlParser: true, useUnifiedTopology: true },
   err => {
     console.log("connected", err ? false : true);
+    Admin.findOne({ username: "admin" }, (err, admin) => {
+      if (err) return console.log(err);
+      if (admin) return console.log(admin, "admin found");
+      if (!admin) {
+        Admin.create(
+          { username: "admin", password: "iamadmin" },
+          (err, admin) => {
+            console.log(admin, "admin created");
+          }
+        );
+      }
+    });
   }
 );
 
 app.use("/api/v1/users", usersRouter);
+app.use("/api/v1/admins", adminsRouter);
+
 app.use("/", indexRouter);
 
 // catch 404 and forward to error handler

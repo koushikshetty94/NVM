@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import { userLogin, userAuthProgress } from "../store/actions";
+import Axios from "axios";
 
 function Login(props) {
   let username = useRef(null);
@@ -26,6 +28,34 @@ function Login(props) {
         );
       });
   }
+
+  const handleAdminLogin = () => {
+    if (username.current.value && password.current.value) {
+      console.log("puneet", {
+        username: username.current.value,
+        password: password.current.value
+      });
+      Axios.post("/api/v1/admins", {
+        username: username.current.value,
+        password: password.current.value
+      })
+        .then(async res => {
+          console.log(res.data, "response from admin login");
+          if (res.data.success) {
+            console.log(res, "login successful");
+            await localStorage.setItem(
+              "gcoinadmin",
+              JSON.stringify({ token: res.data.token })
+            );
+            console.log(localStorage, "localStorage");
+            window.location.href = "/admin";
+            props.history.push("/admin");
+          }
+        })
+        .catch(err => console.log(err, "err from admin login"));
+    }
+  };
+
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -52,11 +82,22 @@ function Login(props) {
                     ref={password}
                   />
                 </div>
+
                 <div className="text-center align-items-center ">
                   <button className="btn btn-primary" type="submit">
                     Login
                   </button>
                 </div>
+                <span
+                  style={{
+                    cursor: "pointer",
+                    color: "darkblue",
+                    paddingTop: "40px"
+                  }}
+                  onClick={handleAdminLogin}
+                >
+                  Login as Admin
+                </span>
               </form>
             </div>
           </div>
@@ -69,4 +110,4 @@ function Login(props) {
 function mapToProps({ user }) {
   return { user };
 }
-export default connect(mapToProps)(Login);
+export default connect(mapToProps)(withRouter(Login));
