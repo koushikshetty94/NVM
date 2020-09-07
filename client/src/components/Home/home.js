@@ -4,8 +4,17 @@ import { Link } from "react-router-dom";
 
 import "./home.scss";
 import { addToCart } from "../../store/actions";
+import Cart from "../../cart/Cart";
 
 class Home extends Component {
+  state = {
+    showCart: false
+  };
+
+  handleCartShow = () => {
+    this.setState({ showCart: true });
+  };
+
   addToCart = i => {
     console.log("add to cart");
     let items = [
@@ -17,7 +26,7 @@ class Home extends Component {
           English Subtitles
           Tulu / Kannada Language
           For Indian Users Only`,
-        price: 1
+        price: 249
       },
       {
         id: 1,
@@ -49,7 +58,40 @@ class Home extends Component {
   render() {
     return (
       <>
-        <header className="header-section">
+        {this.state.showCart ? (
+          <div
+            style={{
+              position: "fixed",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
+              background: "rgba(152,152,152,0.1)",
+              opacity: "0.9",
+              zIndex: 1000000,
+              background: "lightgray"
+            }}
+            className="cartDiv"
+          >
+            <p
+              style={{
+                cursor: "pointer",
+                width: "fitContent",
+                float: "right"
+              }}
+              className="closeIt"
+              onClick={() => this.setState({ showCart: false })}
+            >
+              Close X
+            </p>
+            <Cart />
+          </div>
+        ) : (
+          ""
+        )}
+        <header
+          className="header-section"
+          style={{ filter: this.state.showCart ? "blur(8px)" : "blur(0px)" }}
+        >
           <div className="container">
             <div className="logo">
               <a href="/">
@@ -120,7 +162,10 @@ class Home extends Component {
           </div>
         </section>
 
-        <section className="counter-section bg-gradient">
+        <section
+          className="counter-section bg-gradient"
+          style={{ filter: this.state.showCart ? "blur(8px)" : "blur(0px)" }}
+        >
           <div className="container">
             <div className="row">
               <div className="col-lg-4">
@@ -156,7 +201,10 @@ class Home extends Component {
           </div>
         </section>
 
-        <section className="home-about-section spad">
+        <section
+          className="home-about-section spad"
+          style={{ filter: this.state.showCart ? "blur(8px)" : "blur(0px)" }}
+        >
           <div className="container">
             <div className="row">
               <div className="col-lg-6">
@@ -207,7 +255,10 @@ class Home extends Component {
         <section
           className="pricing-section set-bg spad"
           data-setbg="img/pricing-bg.jpg"
-          style={{ backgroundImage: `url(img/pricing-bg.jpg)` }}
+          style={{
+            backgroundImage: `url(img/pricing-bg.jpg)`,
+            filter: this.state.showCart ? "blur(8px)" : "blur(0px)"
+          }}
         >
           <div className="container">
             <div className="row">
@@ -234,10 +285,9 @@ class Home extends Component {
                     <li>Tulu / Kannada Language</li>
                     <li>For Indian Users Only</li>
                   </ul>
-                  <button onClick={() => this.addToCart(0)}>Add to Cart</button>
-                  <a href="https://imjo.in/rPg657" className="price-btn">
+                  <button onClick={this.handleCartShow} className="price-btn">
                     Get Ticket <span className="arrow_right"></span>
-                  </a>
+                  </button>
                 </div>
               </div>
               <div className="col-lg-4 col-md-8">
@@ -259,11 +309,10 @@ class Home extends Component {
                     <li>Tulu / Kannada Language</li>
                     <li>For Indian Users Only</li>
                   </ul>
-                  <button onClick={() => this.addToCart(1)}>Add to Cart</button>
 
-                  <a href="https://imjo.in/FeTWcK" className="price-btn">
+                  <button onClick={this.handleCartShow} className="price-btn">
                     Get Ticket <span className="arrow_right"></span>
-                  </a>
+                  </button>
                 </div>
               </div>
               <div className="col-lg-4 col-md-8">
@@ -281,18 +330,20 @@ class Home extends Component {
                     <li>Tulu / Kannada Language</li>
                     <li>Broadcast Globally</li>
                   </ul>
-                  <button onClick={() => this.addToCart(2)}>Add to Cart</button>
 
-                  <a href="https://imjo.in/UWXVnc" className="price-btn">
+                  <button onClick={this.handleCartShow} className="price-btn">
                     Get Ticket <span className="arrow_right"></span>
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="schedule-section spad">
+        <section
+          className="schedule-section spad"
+          style={{ filter: this.state.showCart ? "blur(8px)" : "blur(0px)" }}
+        >
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
@@ -561,7 +612,10 @@ class Home extends Component {
           </div>
         </section>
 
-        <section className="latest-blog spad">
+        <section
+          className="latest-blog spad"
+          style={{ filter: this.state.showCart ? "blur(8px)" : "blur(0px)" }}
+        >
           <div className="container">
             <div className="row">
               <div className="col-lg-12">
@@ -633,7 +687,10 @@ class Home extends Component {
           </div>
         </section>
 
-        <section className="newslatter-section">
+        <section
+          className="newslatter-section"
+          style={{ filter: this.state.showCart ? "blur(8px)" : "blur(0px)" }}
+        >
           <div className="container">
             <div
               className="newslatter-inner set-bg"
@@ -654,7 +711,10 @@ class Home extends Component {
           </div>
         </section>
 
-        <section className="contact-section spad">
+        <section
+          className="contact-section spad"
+          style={{ filter: this.state.showCart ? "blur(8px)" : "blur(0px)" }}
+        >
           <div className="container">
             <div className="row">
               <div className="col-lg-6">

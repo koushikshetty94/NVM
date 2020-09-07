@@ -38,7 +38,39 @@ import "./cart.scss";
 //   }
 // ];
 
-let items;
+let items = [
+  {
+    id: 0,
+    name: "Time Pass",
+    description: `1x Ticket
+      1x Lucky Contest Entry
+      English Subtitles
+      Tulu / Kannada Language
+      For Indian Users Only`,
+    price: 249
+  },
+  {
+    id: 1,
+    name: "Group Pass",
+    description: `Pay For 9 and Get 1 For Free
+      10x Ticket
+      10x Lucky Contest Entry
+      English Subtitles
+      Tulu / Kannada Language
+      For Indian Users Only`,
+    price: 2241
+  },
+  {
+    id: 2,
+    name: "NRI Pass",
+    description: `1x Day Ticket
+        1x Lucky Contest Entry
+        English Subtitles
+        Tulu / Kannada Language
+        Broadcast Globally`,
+    price: 349
+  }
+];
 
 class Nav extends React.Component {
   render() {
@@ -223,7 +255,7 @@ class Cart extends React.Component {
   }
 
   render() {
-    items = this.props.cart;
+    // items = this.props.cart;
     let { selectedTab } = this.state;
     return (
       <div className="App">
