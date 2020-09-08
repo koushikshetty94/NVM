@@ -104,6 +104,7 @@ function PrivateRoutes(props) {
 }
 class App extends Component {
   componentDidMount() {
+    console.log(process.env.NODE_ENV, "raxror");
     this.props.dispatch(identifyLoggedUser());
   }
 

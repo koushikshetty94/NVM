@@ -86,7 +86,7 @@ export default function Payment(props) {
     <div className="App">
       <header className="App-header">
         <a
-          className="App-link"
+          className="App-link btn btn-success btn-lg btn-block"
           onClick={displayRazorpay}
           target="_blank"
           rel="noopener noreferrer"

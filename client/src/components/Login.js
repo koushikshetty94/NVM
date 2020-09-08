@@ -60,7 +60,7 @@ function Login(props) {
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-md-5">
-          <div className="card">
+          <div className="card" style={{ background: "none" }}>
             <h2 className="card-title text-center">Login </h2>
             <div className="card-body py-md-4">
               <form _lpchecked="1" onSubmit={e => handleLogin(e)}>

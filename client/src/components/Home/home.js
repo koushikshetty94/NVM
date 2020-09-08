@@ -5,14 +5,53 @@ import { Link } from "react-router-dom";
 import "./home.scss";
 import { addToCart } from "../../store/actions";
 import Cart from "../../cart/Cart";
+import Header from "../../header/Header";
+
+let items = [
+  {
+    id: 0,
+    name: "Time Pass",
+    description: `1x Ticket
+      1x Lucky Contest Entry
+      English Subtitles
+      Tulu / Kannada Language
+      For Indian Users Only`,
+    price: 249
+  },
+  {
+    id: 1,
+    name: "Group Pass",
+    description: `Pay For 9 and Get 1 For Free
+      10x Ticket
+      10x Lucky Contest Entry
+      English Subtitles
+      Tulu / Kannada Language
+      For Indian Users Only`,
+    price: 2241
+  },
+  {
+    id: 2,
+    name: "NRI Pass",
+    description: `1x Day Ticket
+        1x Lucky Contest Entry
+        English Subtitles
+        Tulu / Kannada Language
+        Broadcast Globally`,
+    price: 349
+  }
+];
 
 class Home extends Component {
   state = {
-    showCart: false
+    showCart: false,
+    activeItem: ""
   };
 
-  handleCartShow = () => {
-    this.setState({ showCart: true });
+  handleCartShow = i => {
+    if (this.props.user.currentUser) {
+      return this.setState({ showCart: true, activeItem: items[i] });
+    }
+    alert("Please Login");
   };
 
   addToCart = i => {
@@ -83,54 +122,13 @@ class Home extends Component {
             >
               Close X
             </p>
-            <Cart />
+            <Cart item={this.state.activeItem} />
           </div>
         ) : (
           ""
         )}
-        <header
-          className="header-section"
-          style={{ filter: this.state.showCart ? "blur(8px)" : "blur(0px)" }}
-        >
-          <div className="container">
-            <div className="logo">
-              <a href="/">
-                <img src="img/logo.png" alt="" />
-              </a>
-            </div>
-            <div className="nav-menu">
-              <nav className="mainmenu mobile-menu">
-                <ul>
-                  <li className="active">
-                    <Link to="/">Home</Link>
-                  </li>
-                  <li>
-                    <Link to="/aboutUs">About</Link>
-                  </li>
-                  <li>
-                    <a href="#contest">Lucky Contest</a>
-                  </li>
-                  <li>
-                    <a href="#">Updates</a>
-                  </li>
-                  <li>
-                    <Link to="/contact">Contact</Link>
-                  </li>
-                  <li>
-                    <Link to="/cart">Cart</Link>
-                  </li>
-                </ul>
-              </nav>
-              <a
-                href="https://web.whatsapp.com/send?phone=919141162169&text=Hello!"
-                className="primary-btn top-btn"
-              >
-                <i className="fa fa-ticket"></i>Ticket
-              </a>
-            </div>
-            <div id="mobile-menu-wrap"></div>
-          </div>
-        </header>
+
+        <Header showCart={this.state.showCart} />
 
         <section
           className="hero-section set-bg"
@@ -285,7 +283,10 @@ class Home extends Component {
                     <li>Tulu / Kannada Language</li>
                     <li>For Indian Users Only</li>
                   </ul>
-                  <button onClick={this.handleCartShow} className="price-btn">
+                  <button
+                    onClick={() => this.handleCartShow(0)}
+                    className="price-btn"
+                  >
                     Get Ticket <span className="arrow_right"></span>
                   </button>
                 </div>
@@ -310,7 +311,10 @@ class Home extends Component {
                     <li>For Indian Users Only</li>
                   </ul>
 
-                  <button onClick={this.handleCartShow} className="price-btn">
+                  <button
+                    onClick={() => this.handleCartShow(1)}
+                    className="price-btn"
+                  >
                     Get Ticket <span className="arrow_right"></span>
                   </button>
                 </div>
@@ -331,7 +335,10 @@ class Home extends Component {
                     <li>Broadcast Globally</li>
                   </ul>
 
-                  <button onClick={this.handleCartShow} className="price-btn">
+                  <button
+                    onClick={() => this.handleCartShow(2)}
+                    className="price-btn"
+                  >
                     Get Ticket <span className="arrow_right"></span>
                   </button>
                 </div>
