@@ -380,7 +380,21 @@ ol {
   display: inline-block;
 }
 
-.nav-menu .mainmenu ul li a:after {
+// .nav-menu .mainmenu ul li a:after {
+//   position: absolute;
+//   left: 0;
+//   bottom: 36px;
+//   height: 2px;
+//   width: 100%;
+//   background: #f44949;
+//   content: "";
+//   opacity: 0;
+//   -webkit-transition: all 0.3s;
+//   -o-transition: all 0.3s;
+//   transition: all 0.3s;
+// }
+
+.activeNav:after {
   position: absolute;
   left: 0;
   bottom: 36px;
@@ -388,7 +402,7 @@ ol {
   width: 100%;
   background: #f44949;
   content: "";
-  opacity: 0;
+  // opacity: 0;
   -webkit-transition: all 0.3s;
   -o-transition: all 0.3s;
   transition: all 0.3s;
@@ -2542,4 +2556,11 @@ ol {
   color: tomato;
   transform: scale(1.1);
   transition: all linear 0.2s;
+}
+
+.flexit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
