@@ -5,7 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const expressStaticGzip = require("express-static-gzip");
 var mongoose = require("mongoose");
-
+var cors = require('cors');
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users/index");
 var adminsRouter = require("./routes/admins/index");
@@ -15,6 +15,7 @@ var Admin = require("./models/admin");
 require("dotenv").config();
 
 var app = express();
+app.use(cors());
 
 const gzipOptions = {
   enableBrotli: true,

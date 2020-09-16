@@ -91,6 +91,7 @@ export let userLogin = payload => {
 export let identifyLoggedUser = () => {
   return function() {
     if (localStorage.gcoin) {
+	console.log(localStorage.gcoin,"localstorage from user identified")
       store.dispatch(
         userAuthProgress({ isAuthInProgress: true, isAuthDone: false })
       );

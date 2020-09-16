@@ -50,8 +50,8 @@ export default function Payment(props) {
         currency: data.currency,
         amount: data.amount.toString(),
         order_id: data.id,
-        name: "Donation",
-        description: "Thank you for nothing. Please give us some money",
+        name: "Nishan Varun Movies",
+        description: "Thankyou",
         image: "",
         handler: function(response) {
           console.log(response, "its a response");

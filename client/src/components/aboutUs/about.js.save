@@ -114,8 +114,7 @@ class about extends Component {
                       <p className="f-para">
                         Nishan Varun Movies is a well reowned production company by three friends who have been best Friends for over 20years. They aim to produce more creative and great movies in tulu industry over the coming years and want to entertain. NishanVarun Movies will release their first movie in Tulu industry "Pepperere Pererere" on December 18th 2020. The movie has casted the best actors Tulunad has seen for decades & is sure to be one among the best movies tulunad has given us.
                       </p>
-                      
-                       
+                     
                     </div>
                   </div>
                 </div>
@@ -127,22 +126,32 @@ class about extends Component {
                   </div>
                   <div className="col-lg-6">
                     <div className="about-text">
-                      <h3>About The Movie</h3>
+                      <h3>The 2019 Conference</h3>
                       <p>
-                       Pepperere Pererere Movie is a total Family entertainer filled with comedy & drama. The movie casts a bunch of stars to take you on a joyful ride of fun & entertainment. How do you book a ticket? Download V4 media App on Android app store & Appstore. Install the app & enter your Unique code to view the movie. NishanVarun Movie is also organizing contests. The lucky draw contest includes variety of gifts & prizes for the winners like Laptops, Car, Tabs, Mobile phones & more. Purchase a ticket and win exciting prizes now!.
+                        When I first got into the online advertising business, I
+                        was looking for the magical combination that would put
+                        my website into the top search engine rankings, catapult
+                        me to the forefront of the minds or individuals looking
+                        to buy my product, and generally make me rich beyond my
+                        wildest dreams! After succeeding in the business for
+                        this long, I’m able to look back on my old self with
+                        this kind of thinking and shake my head.{" "}
                       </p>
                       <ul>
                         <li>
-                          <span className="icon_check" /> 100% Entertainment
+                          <span className="icon_check" /> Write On Your Business
+                          Card
                         </li>
                         <li>
-                          <span className="icon_check" /> English subtitles 
-</li>
-                        <li>
-                          <span className="icon_check" /> Multi-language movie (Kannada | Tulu)
+                          <span className="icon_check" /> Advertising Outdoors
                         </li>
                         <li>
-                          <span className="icon_check" /> Total Comedy Entertainer
+                          <span className="icon_check" /> Effective Advertising
+                          Pointers
+                        </li>
+                        <li>
+                          <span className="icon_check" /> Kook 2 Directory Add
+                          Url Free
                         </li>
                       </ul>
                     </div>
@@ -152,7 +161,7 @@ class about extends Component {
             </section>
             {/* About Section End */}
             {/* Team Member Section Begin */}
-            <section className="team-member-section" style={{display:"none"}}  >
+            <section className="team-member-section">
               <div className="container">
                 <div className="row">
                   <div className="col-lg-12">
@@ -533,43 +542,30 @@ class about extends Component {
                       <div className="ct-address">
                         <span>Address:</span>
                         <p>
-                            Kankannady
-                      <br />
-                      Mangalore
+                          01 Pascale Springs Apt. 339, NY City <br />
+                          United State
                         </p>
                       </div>
-                      
-                  <ul>
-                    <li>
-                      <span>Phone:</span>
-                      <a href="tel:+919141162169" target="_blank">
-                        +91 91411 62169
-                      </a>
-                    </li>
-                    <li>
-                      <span>Whatsapp:</span>
-                      <a
-                        href="https://web.whatsapp.com/send?phone=919141162169&text=Hello!"
-                        target="_blank"
-                      >
-                        +91 91411 62169
-                      </a>
-                    </li>
-                  </ul>
-</div>
-                  <div className="ct-links">
-                    <span>Email:</span>
-                    <a href="contact@nishanvarumovies.com" target="_blank">
-                      {" "}
-                      <p>contact@nishanvarumovies.com</p>
-                    </a>
-                  </div>
+                      <ul>
+                        <li>
+                          <span>Phone:</span>
+                          (+12)-345-67-8910
+                        </li>
+                        <li>
+                          <span>Email:</span>
+                          info.colorlib@gmail.com
+                        </li>
+                      </ul>
+                      <div className="ct-links">
+                        <span>Website:</span>
+                        <p>https://conference.colorlib.com</p>
+                      </div>
+                    </div>
                   </div>
                   <div className="col-lg-6">
                     <div className="cs-map">
                       <iframe
-                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124440.39881927885!2d74.7820230583424!3d12.922982868390962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a4c37bf488f%3A0x827bbc7a74fcfe64!2sMangalore%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1597689859183!5m2!1sen!2sin"
-
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d52901.38789495531!2d-118.19465514866786!3d34.03523211493029!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2cf71ad83ff9f%3A0x518b28657f4543b7!2sEast%20Los%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1579763856144!5m2!1sen!2sbd"
                         height={400}
                         style={{ border: 0 }}
                         allowFullScreen

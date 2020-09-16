@@ -146,8 +146,10 @@ class Home extends Component {
                     To be released soon
                   </h2>
                   <a
-                    href="https://web.whatsapp.com/send?phone=919141162169&text=Hello!"
+                   // href="https://web.whatsapp.com/send?phone=919141162169&text=Hello!"
                     className="primary-btn"
+			style={{cursor:"pointer", fontSize: "26px"}}
+			onClick={() => this.handleCartShow(0)}
                   >
                     Buy Ticket
                   </a>
@@ -260,7 +262,7 @@ class Home extends Component {
         >
           <div className="container">
             <div className="row">
-              <div className="col-lg-12">
+              <div className="col-lg-12" style={{marginRight: "80px"}} >
                 <div className="section-title">
                   <h2>Ticket Pricing</h2>
                   <p>Get your event ticket plan</p>
@@ -270,7 +272,7 @@ class Home extends Component {
             <div className="row justify-content-center">
               <div className="col-lg-4 col-md-8">
                 <div className="price-item">
-                  <h4>1 Time Pass</h4>
+                  <h4>Indian Pass</h4>
                   <div className="pi-price">
                     <h2>
                       <span>₹</span>249
@@ -286,39 +288,13 @@ class Home extends Component {
                   <button
                     onClick={() => this.handleCartShow(0)}
                     className="price-btn"
+			style={{fontSize:"20px"}}
                   >
-                    Get Ticket <span className="arrow_right"></span>
+                    Buy Ticket 
                   </button>
                 </div>
               </div>
-              <div className="col-lg-4 col-md-8">
-                <div className="price-item top-rated">
-                  <div className="tr-tag">
-                    <i className="fa fa-star"></i>
-                  </div>
-                  <h4>Group Pass</h4>
-                  <div className="pi-price">
-                    <h2>
-                      <span>₹</span>2241
-                    </h2>
-                  </div>
-                  <ul>
-                    <li>Pay For 9 and Get 1 For Free</li>
-                    <li>10x Ticket</li>
-                    <li>10x Lucky Contest Entry</li>
-                    <li>English Subtitles</li>
-                    <li>Tulu / Kannada Language</li>
-                    <li>For Indian Users Only</li>
-                  </ul>
-
-                  <button
-                    onClick={() => this.handleCartShow(1)}
-                    className="price-btn"
-                  >
-                    Get Ticket <span className="arrow_right"></span>
-                  </button>
-                </div>
-              </div>
+            
               <div className="col-lg-4 col-md-8">
                 <div className="price-item">
                   <h4>NRI Pass</h4>
@@ -338,8 +314,9 @@ class Home extends Component {
                   <button
                     onClick={() => this.handleCartShow(2)}
                     className="price-btn"
+			style={{fontSize:"20px"}}
                   >
-                    Get Ticket <span className="arrow_right"></span>
+                   Buy Ticket
                   </button>
                 </div>
               </div>
@@ -785,8 +762,8 @@ class Home extends Component {
         </section>
 
         <footer className="footer-section">
-          <div className="container">
-            <div className="partner-logo owl-carousel">
+          <div className="container" >
+            <div className="partner-logo owl-carousel" style={{display:"none"}} >
               <a href="#" className="pl-table">
                 <div className="pl-tablecell">
                   <img src="img/v4-stream-best-tulu-movie.png" alt="" />

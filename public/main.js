@@ -1,3 +1,5 @@
+"use strict";
+
 /*  ---------------------------------------------------
     Template Name: Manup
     Description: Manup Event HTML Template
@@ -7,7 +9,6 @@
     Created: Colorlib
 ---------------------------------------------------------  */
 
-"use strict";
 
 (function($) {
   /*------------------
@@ -17,7 +18,7 @@
     $(".loader").fadeOut();
     $("#preloder")
       .delay(200)
-      .fadeOut("slow");
+      .fadeOut("slow"); 
   });
 
   /*------------------

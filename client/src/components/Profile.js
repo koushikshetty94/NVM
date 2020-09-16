@@ -113,6 +113,9 @@ class Profile extends Component {
                     this.props.user.currentUser.contactnumber}
                 </span>
               </h3>
+		<button classname="btn btn-primary" onClick={()=> {localStorage.clear()
+	window.location.href="/"
+		}} > Logout </button>
             </div>
           </div>
           <div className="button-box">
