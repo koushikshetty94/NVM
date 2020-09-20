@@ -41,7 +41,7 @@ import "./cart.scss";
 let items = [
   {
     id: 0,
-    name: "Time Pass",
+    name: "Indian Ticket",
     description: `1x Ticket
       1x Lucky Contest Entry
       English Subtitles
@@ -51,18 +51,7 @@ let items = [
   },
   {
     id: 1,
-    name: "Group Pass",
-    description: `Pay For 9 and Get 1 For Free
-      10x Ticket
-      10x Lucky Contest Entry
-      English Subtitles
-      Tulu / Kannada Language
-      For Indian Users Only`,
-    price: 2241
-  },
-  {
-    id: 2,
-    name: "NRI Pass",
+    name: "NRI Ticket",
     description: `1x Day Ticket
         1x Lucky Contest Entry
         English Subtitles

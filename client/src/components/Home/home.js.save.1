@@ -1,6 +1,7 @@
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import "./home.scss";
 import { addToCart } from "../../store/actions";
@@ -10,7 +11,7 @@ import Header from "../../header/Header";
 let items = [
   {
     id: 0,
-    name: "Indian Ticket",
+    name: "Time Pass",
     description: `1x Ticket
       1x Lucky Contest Entry
       English Subtitles
@@ -20,7 +21,18 @@ let items = [
   },
   {
     id: 1,
-    name: "NRI Ticket",
+    name: "Group Pass",
+    description: `Pay For 9 and Get 1 For Free
+      10x Ticket
+      10x Lucky Contest Entry
+      English Subtitles
+      Tulu / Kannada Language
+      For Indian Users Only`,
+    price: 2241
+  },
+  {
+    id: 2,
+    name: "NRI Pass",
     description: `1x Day Ticket
         1x Lucky Contest Entry
         English Subtitles
@@ -33,18 +45,14 @@ let items = [
 class Home extends Component {
   state = {
     showCart: false,
-    activeItem: "",
-    mouseHover: false
+    activeItem: ""
   };
 
-mouseHoverHandler = (i) => {
-return this.setState({mouseHover: !this.state.mouseHover})
-}
   handleCartShow = i => {
-   // if (this.props.user.currentUser) {
+    if (this.props.user.currentUser) {
       return this.setState({ showCart: true, activeItem: items[i] });
-   // }
-   // alert("Please Login");
+    }
+    alert("Please Login");
   };
 
   addToCart = i => {
@@ -52,7 +60,7 @@ return this.setState({mouseHover: !this.state.mouseHover})
     let items = [
       {
         id: 0,
-        name: "Indian Ticket",
+        name: "Time Pass",
         description: `1x Ticket
           1x Lucky Contest Entry
           English Subtitles
@@ -62,7 +70,18 @@ return this.setState({mouseHover: !this.state.mouseHover})
       },
       {
         id: 1,
-        name: "NRI Ticket",
+        name: "Group Pass",
+        description: `Pay For 9 and Get 1 For Free
+          10x Ticket
+          10x Lucky Contest Entry
+          English Subtitles
+          Tulu / Kannada Language
+          For Indian Users Only`,
+        price: 2241
+      },
+      {
+        id: 2,
+        name: "NRI Pass",
         description: `1x Day Ticket
             1x Lucky Contest Entry
             English Subtitles
@@ -111,11 +130,11 @@ return this.setState({mouseHover: !this.state.mouseHover})
         )}
 
         <Header showCart={this.state.showCart} />
-	<img src="https://drive.google.com/file/d/1nsLrWtJ28GFlsjvqVnVEhtMbCuNdizZ9/view?usp=sharing" alt="new" />
+
         <section
           className="hero-section set-bg"
-          data-setbg="https://drive.google.com/file/d/1nsLrWtJ28GFlsjvqVnVEhtMbCuNdizZ9/view?usp=sharing"
-          style={{ backgroundImage: `url(https://drive.google.com/file/d/1nsLrWtJ28GFlsjvqVnVEhtMbCuNdizZ9/preview)` }}
+          data-setbg="img/hero.jpg"
+          style={{ backgroundImage: `url(img/hero.jpg)` }}
         >
           <div className="container">
             <div className="row">
@@ -194,39 +213,37 @@ return this.setState({mouseHover: !this.state.mouseHover})
               </div>
               <div className="col-lg-6">
                 <div className="ha-text">
-                  <h2>About "Pepperere Pererere"</h2>
+                  <h2>About Nishan Varun Movies</h2>
                   <p>
-                   Pepperere Pererere Movie is a total Family entertainer filled with comedy & drama. The movie casts a bunch of stars to take you on a joyful ride of fun & entertainment. How do you book a ticket? Download V4 media App on Android app store & Appstore. Install the app & enter your Unique code to view the movie. NishanVarun Movie is also organizing contests. The lucky draw contest includes variety of gifts & prizes for the winners like Laptops, Car, Tabs, Mobile phones & more. Purchase a ticket and win exciting prizes now!.
+                    Nishan Varun Movies is a well reowned production company by
+                    three friends who have been best Friends for over 20years.
+                    They aim to produce more creative and great movies in tulu
+                    industry over the coming years and want to entertain.
+                    NishanVarun Movies will release their first movie in Tulu
+                    industry "Pepperere Pererere" on December 18th 2020. The
+                    movie has casted the best actors Tulunad has seen for
+                    decades & is sure to be one among the best movies tulunad
+                    has given us.
                   </p>
                   <ul>
                     <li>
-                      <span className="icon_check" style={{display: "none"}}></span>100% Entertainment
+                      <span className="icon_check" style={{display : "none"}}></span>100% Entertainment
                     </li>
                     <li>
-                      <span className="icon_check" style={{display: "none"}}></span>Tulu language movie with english and kannada subtitles
+                      <span className="icon_check"TULU language movie></span>Tulu language movie with english and kannada subtitles
                     </li>
                     <li>
-                      <span className="icon_check" style={{display: "none"}}></span>Total Comedy
+                      <span className="icon_check"></span>Total Comedy
                       Entertainer
                     </li>
                   </ul>
-<ul>
-<li>
-		<a
-                    href="/aboutUs"
-                    target="_blank"
-                    className="ha-btn"
-                  >
-                    Read More
-                  </a> </li>	
-                 <li> <a
+                  <a
                     href="https://www.youtube.com/watch?v=B3P1xFNSFUI"
                     target="_blank"
                     className="ha-btn"
                   >
                     Watch Now
-                  </a></li>
-</ul>
+                  </a>
                 </div>
               </div>
             </div>
@@ -245,17 +262,15 @@ return this.setState({mouseHover: !this.state.mouseHover})
             <div className="row">
               <div className="col-lg-12" style={{marginRight: "80px"}} >
                 <div className="section-title">
-                  <h2>
-		Ticket Pricing
-		  </h2>
-                  <p>Get your Movie Ticket</p>
+                  <h2>Ticket Pricing</h2>
+                  <p>Get your event ticket plan</p>
                 </div>
               </div>
             </div>
             <div className="row justify-content-center">
               <div className="col-lg-4 col-md-8">
                 <div className="price-item">
-                  <h4>Indian Ticket</h4>
+                  <h4>Indian Pass</h4>
                   <div className="pi-price">
                     <h2>
                       <span>₹</span>249
@@ -265,8 +280,7 @@ return this.setState({mouseHover: !this.state.mouseHover})
                     <li>1x Ticket</li>
                     <li>1x Lucky Contest Entry</li>
                     <li>English / Kannada Subtitles</li>
-                    <li>TULU language movie</li>
-                    <li>For Indian Users Only</li>
+                    <li>TULU language movie</li> <li>For Indian Users Only</li>
                   </ul>
                   <button
                     onClick={() => this.handleCartShow(0)}
@@ -280,7 +294,7 @@ return this.setState({mouseHover: !this.state.mouseHover})
             
               <div className="col-lg-4 col-md-8">
                 <div className="price-item">
-                  <h4>NRI Ticket</h4>
+                  <h4>NRI Pass</h4>
                   <div className="pi-price">
                     <h2>
                       <span>₹</span>349
@@ -402,7 +416,7 @@ return this.setState({mouseHover: !this.state.mouseHover})
                                 <h4>Trailer Release</h4>
                                 <ul>
                                   <li>
-                                    <i className="fa fa-gift"></i> Premium Tab
+                                    <i className="fa fa-gift"></i> Samsung Tab
                                   </li>
                                 </ul>
                               </div>
@@ -439,7 +453,7 @@ return this.setState({mouseHover: !this.state.mouseHover})
                                 <h4>Trailer Release</h4>
                                 <ul>
                                   <li>
-                                    <i className="fa fa-gift"></i> Premium
+                                    <i className="fa fa-gift"></i> Samsung
                                     Smartphone
                                   </li>
                                 </ul>
@@ -477,7 +491,7 @@ return this.setState({mouseHover: !this.state.mouseHover})
                                 <h4>Movie Release</h4>
                                 <ul>
                                   <li>
-                                    <i className="fa fa-gift"></i> Premium Laptop
+                                    <i className="fa fa-gift"></i> Dell Laptop
                                   </li>
                                 </ul>
                               </div>
@@ -514,7 +528,8 @@ return this.setState({mouseHover: !this.state.mouseHover})
                                 <h4>Trailer Release</h4>
                                 <ul>
                                   <li>
-                                    <i className="fa fa-gift"></i> Scooter
+                                    <i className="fa fa-gift"></i> Suzuki Access
+                                    125
                                   </li>
                                 </ul>
                               </div>
@@ -551,7 +566,7 @@ return this.setState({mouseHover: !this.state.mouseHover})
                                 <h4>Movie Release</h4>
                                 <ul>
                                   <li>
-                                    <i className="fa fa-gift"></i> Car
+                                    <i className="fa fa-gift"></i> Swift Car
                                   </li>
                                 </ul>
                               </div>
@@ -681,8 +696,8 @@ return this.setState({mouseHover: !this.state.mouseHover})
           style={{ filter: this.state.showCart ? "blur(8px)" : "blur(0px)" }}
         >
           <div className="container">
-            <div >
-              <div >
+            <div className="row">
+              <div className="col-lg-6">
                 <div className="section-title">
                   <h2>Have any queries</h2>
                   <p>Feel free to get in touch with us!</p>
@@ -724,7 +739,7 @@ return this.setState({mouseHover: !this.state.mouseHover})
                 </div>
               </div>
 
-              <div className="col-lg-6" style={{display:"none"}}>
+              <div className="col-lg-6">
                 <div className="cs-map">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124440.39881927885!2d74.7820230583424!3d12.922982868390962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35a4c37bf488f%3A0x827bbc7a74fcfe64!2sMangalore%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1597689859183!5m2!1sen!2sin"

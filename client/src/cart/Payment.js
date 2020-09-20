@@ -37,9 +37,9 @@ export default function Payment(props) {
     Axios.post(
       "/api/v1/users/razorpay",
       { amount: props.total },
-      {
-        headers: { authorization: JSON.parse(localStorage.gcoin).token }
-      }
+     // {
+       // headers: { authorization: JSON.parse(localStorage.gcoin).token }
+     // }
     ).then(res => {
       console.log(res.data, "from razor pay");
       var data = res.data;

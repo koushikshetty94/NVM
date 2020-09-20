@@ -54,7 +54,7 @@ router.post("/verification", auth.verifyToken, (req, res) => {
   res.json({ status: "ok" });
 });
 
-router.post("/razorpay", auth.verifyToken, async (req, res) => {
+router.post("/razorpay", async (req, res) => {
   console.log(req.body.amount, "its a amount");
   const payment_capture = 1;
   const amount = 1;
@@ -80,19 +80,19 @@ router.post("/razorpay", auth.verifyToken, async (req, res) => {
   }
 });
 
-router.post("/paymentdone", auth.verifyToken, async (req, res) => {
+router.post("/paymentdone", async (req, res) => {
   try {
-    var user = await User.findByIdAndUpdate(req.user.userId, {
-      $push: { purchases: req.body.items }
-    });
-    console.log(user, req.body, "user");
+  //  var user = await User.findByIdAndUpdate(req.user.userId, {
+   //   $push: { purchases: req.body.items }
+   // });
+   // console.log(user, req.body, "user");
 
-    if (user.referedBy) {
-      var referedByTheUser = await User.findByIdAndUpdate(user.referedBy, {
-        $inc: { balance: req.body.amount * 0.12 }
-      });
-      console.log(referedByTheUser, "referedByTheUser updated");
-    }
+   // if (user.referedBy) {
+     // var referedByTheUser = await User.findByIdAndUpdate(user.referedBy, {
+     //   $inc: { balance: req.body.amount * 0.12 }
+     // });
+     // console.log(referedByTheUser, "referedByTheUser updated");
+  //  }
 
     res.json({
       success: true,

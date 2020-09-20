@@ -272,3 +272,20 @@
   margin: 0 auto;
   width: 100%;
 }
+
+
+.bg-orange-gradient{
+  background-image: linear-gradient(120deg, #ee8425 0%, #f9488b 100%), linear-gradient(120deg, #ee8425 0%, #f9488b 100%);
+}
+.circular-div-size{
+  height: 140px;
+  width: 140px;
+}
+.card-bg-img{
+  background-image: url('/img/hero.jpg');
+  background-size: cover;
+margin: 0 auto;
+}
+.profile-font-size{
+  font-size: 28px;
+}

@@ -58,7 +58,7 @@ class Header extends React.Component {
                       </Link>
                     ) : (
                       <>
-                        <i className="fa fa-ticket"></i>Register/Login
+                        <i className="fa fa-ticket"></i>Free Ticket/Login
                       </>
                     )}
                   </li>

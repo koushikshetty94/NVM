@@ -111,11 +111,11 @@ return this.setState({mouseHover: !this.state.mouseHover})
         )}
 
         <Header showCart={this.state.showCart} />
-	<img src="https://drive.google.com/file/d/1nsLrWtJ28GFlsjvqVnVEhtMbCuNdizZ9/view?usp=sharing" alt="new" />
+
         <section
           className="hero-section set-bg"
-          data-setbg="https://drive.google.com/file/d/1nsLrWtJ28GFlsjvqVnVEhtMbCuNdizZ9/view?usp=sharing"
-          style={{ backgroundImage: `url(https://drive.google.com/file/d/1nsLrWtJ28GFlsjvqVnVEhtMbCuNdizZ9/preview)` }}
+          data-setbg="img/hero.jpg"
+          style={{ backgroundImage: `url(img/hero.jpg)` }}
         >
           <div className="container">
             <div className="row">
@@ -245,9 +245,15 @@ return this.setState({mouseHover: !this.state.mouseHover})
             <div className="row">
               <div className="col-lg-12" style={{marginRight: "80px"}} >
                 <div className="section-title">
-                  <h2>
+                  <h2 onMouseEnter={() =>this. mouseHoverHandler(true)}
+       		       onMouseLeave={() => this.mouseHoverHandler(false)}>
 		Ticket Pricing
 		  </h2>
+{ this.state.mouseHover ? (
+        <button>
+          I'll appear when you hover over the button.
+        </button>
+      ) : " "}
                   <p>Get your Movie Ticket</p>
                 </div>
               </div>
@@ -280,7 +286,10 @@ return this.setState({mouseHover: !this.state.mouseHover})
             
               <div className="col-lg-4 col-md-8">
                 <div className="price-item">
-                  <h4>NRI Ticket</h4>
+                  <h4 onMouseEnter={() =>this. mouseHoverHandler(true)}
+                       onMouseLeave={() => this.mouseHoverHandler(false)>
+			NRI Ticket
+		</h4>
                   <div className="pi-price">
                     <h2>
                       <span>₹</span>349

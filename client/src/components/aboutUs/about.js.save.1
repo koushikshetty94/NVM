@@ -34,10 +34,10 @@ class about extends Component {
   };
 
   handleCartShow = i => {
-   // if (this.props.user.currentUser) {
+    if (this.props.user.currentUser) {
       return this.setState({ showCart: true, activeItem: items[i] });
-   // }
-   // alert("Please Login");
+    }
+    alert("Please Login");
   };
   render() {
     return (
@@ -85,6 +85,7 @@ class about extends Component {
                     <div className="breadcrumb-text">
                       <h2>About Us</h2>
                       <div className="bt-option">
+                        <a href="#">Home</a>
                       </div>
                     </div>
                   </div>
@@ -98,7 +99,7 @@ class about extends Component {
                 <div className="row">
                   <div className="col-lg-12">
                     <div className="section-title">
-                      <h2>About Nishan Varun Movies</h2>
+                      <h2>Something About Us</h2>
                       <p className="f-para">
                         Nishan Varun Movies is a well reowned production company by three friends who have been best Friends for over 20years. They aim to produce more creative and great movies in tulu industry over the coming years and want to entertain. NishanVarun Movies will release their first movie in Tulu industry "Pepperere Pererere" on December 18th 2020. The movie has casted the best actors Tulunad has seen for decades & is sure to be one among the best movies tulunad has given us.
                       </p>
@@ -427,14 +428,14 @@ class about extends Component {
                   <div className="col-lg-12" style={{marginRight:"80px"}} >
                     <div className="section-title">
                       <h2>Ticket Pricing</h2>
-                      <p>Get your Movie Ticket</p>
+                      <p>Get your event ticket plan</p>
                     </div>
                   </div>
                 </div>
                 <div className="row justify-content-center" >
                   <div className="col-lg-4">
                     <div className="price-item">
-                      <h4>Indian Pass</h4>
+                      <h4>Indian Ticket</h4>
                       <div className="pi-price">
                         <h2>
                           <span>₹</span>249
@@ -459,7 +460,7 @@ class about extends Component {
             
                   <div className="col-lg-4">
                     <div className="price-item">
-                      <h4>NRI Pass</h4>
+                      <h4>NRI Ticket</h4>
                       <div className="pi-price">
                         <h2>
                           <span>₹</span>349
